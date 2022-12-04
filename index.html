@@ -1,0 +1,275 @@
+<!-- finish steps 13-15 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Learn Python By Coding A Picture Selector</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<nav id="navbar">
+		<header>Learn Python By Coding A Picture Selector</header>
+		<ul>
+			<li>
+				<a class="nav-link" href="#Introduction">Introduction</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Download_And_Install_Python">Download And Install Python</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Download_And_Install_A_Python_IDE">Download And Install A Python IDE</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Encode_The_Pictures">Encode The Pictures</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Create_A_Picture_Converter_Function">Create A Picture Converter Function</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Code_A_Picture_Selector">Code A Picture Selector</a>
+			</li>
+		</ul>
+	</nav>
+	<main id="main-doc"><!-- <code></code> -->
+		<section class="main-section" id="Introduction">
+			<header>Introduction</header>
+			<p>Python is a dynamically semantic, interpreted, object-oriented, high-level programming language created in the late 1980’s by Guido van Rossum and first released in 1991.  Van Rossum was a fan of the BBC comedy series “Monty Python’s Flying Circus” from the 1970’s, having even read published scripts from the show, so when he needed a name for his new language he chose the name Python.  It was short, unique, and even a little mysterious making it a perfect fit for what Van Rossum was looking for in a name.  Python’s claim to fame, however, is due more to it’s overall usefulness and functionality than the origin of it’s name.  Programmers love Python because it’s easy to learn with a syntax that emphasizes readability, and since there is no compilation step the edit-test-debug cycle is extremely fast.</p>
+			<p>Python is attractive for Rapid Application Development and for use as a scripting language used to ‘glue’ existing components together thanks to it’s high-level built in data structures combined with dynamic typing and dynamic binding.  It supports modules and packages for program modularity and code reuse and you can access the Python interpreter and the extensive standard library free of charge.</p>
+			<p>In this tutorial we will be covering some basic Python codes while we create a simple program that will print a picture in the terminal and then expand the program to print a different picture based on a number entered by the user.  Hopefully you find this to be a fun and informative way to begin your journey as a Python developer.</p>
+		</section>
+		<section class="main-section" id="Download_And_Install_Python">
+			<header>Download And Install Python</header>
+			<p>Python is used available for installation on several operating systems, however, since Windows is the most widely used OS, we will be focusing on the install instructions for Windows users.  For installation instructions for Linux click <a href=”https://docs.python-guide.org/starting/install3/linux/ ”>here</a>.  For installation instructions for Mac click <a href=”https://docs.python.org/3/using/mac.html”>here</a>.</p>
+			<p>Go to <a href=”https://www.python.org/downloads/”>python.org</a> to download the most current version of python for your OS and click the  button to begin the download.  Once the installer has finished downloading, run it and check the options to Install launcher for all users and Add Python to path to include the interpreter in the execution path.</p>
+			<p>Now, select Customize installation and choose all the optional features by checking the boxes including the box to install for all users before clicking Next.  You will then be taken to the Advanced Options screen.  On this screen check the boxes to Install for all users and Add Python to environment variables, if you chose, you may also select other advanced options as well.  Before clicking Install make sure to take note of the installation directory displayed on the Advanced Options screen because you will need it for the next step.  Once finished click Install to begin the installation.  When the installation has completed you will see a window pop up telling you the installation was successful.</p>
+		</section>
+		<section class="main-section" id="Download_And_Install_A_Python_IDE">
+			<header>Download And Install A Python IDE</header>
+			<p>Now it's time to install our Python Integrated Development Environment.  For this we will be using PyCharm's free IDE for Python which can be downloaded <a href=”https://www.jetbrains.com/pycharm/download/#section=windows”>here</a>. If you're using a Linux distribution, you can download it <a href=”https://www.jetbrains.com/pycharm/download/#section=linux”>here</a>, for Mac users, it can be downloaded  from <a href=”https://www.jetbrains.com/pycharm/download/#section=mac”>here</a>.  Installation instructions for Linux and Mac users can be found at the bottom of their respective download pages.  Once the download has completed, run the downloaded .exe file to start the installation wizard.  Follow the steps that the wizard suggests paying special attention to the corresponding installation options.  Once the installation has finished, you can start PyCharm and you're ready to start coding.</p>
+		</section>
+		<section class="main-section" id="Encode_The_Pictures">
+			<header>Encode The Pictures</header>
+			<p>First we're going to start by encoding the pictures.  To do this we will use what is called a list.  Lists are used to store multiple items in a single variable.  Lists are only one of 4 built-in data types in Python used to store collections of data.  The other three are <a href=”https://www.w3schools.com/python/python_tuples.asp”>Tuple</a>, <a href=”https://www.w3schools.com/python/python_sets.asp”>Set</a>, and <a href=”https://www.w3schools.com/python/python_lists.asp”>Dictionary</a> each one having different qualities and usage, but in this example we will be focusing on lists.</p>
+			<p>List items are indexed, the first list item having an index of [0] and the second list item having an index of [1] and so on.  They are also orderd, changeable, and allow duplicate values.  Ordered means that the items on the list have a defined order that will not change and if you add new items to a list the items will be placed at the end of the list.  Changeable means tht we can change, add, and remove items in a list after the list has been created.  Also, since the lists are indexed, the lists can have items with the same value or “duplicate values”.</p>
+			<p>List items can be of any data type and can also contain different data types in the same list.  They are created using the name of the list followed by an equal sign  and then square brackets containing the list items with each item being separated by a comma with strings being inside quotation marks.  A list can also contain more than one set of list items, or square brackets, separated by a comma, which is the type of list we'll be using to encode our pictures.</p>
+			<p>For this tutorial I have 5 images already encoded, but if you would like to add more, simply draw out the picture you want to create on a piece of graph paper using the characters and/or special characters you would like to use.  In this tutorial we will be using /, |, \, _, X, *, and spaces to encode our pictures.  You can add additional characters if you would like just remember to update the code in your function to decode and print your pictures, as well as to add any new pictures you create yourself to your picture selector.  Once you have drawn your picture out on graph paper, use the following key to encode your picture placing each row on the graph paper within it's own set of brackets and each cell in that row representing a single pixel in your picture.</p>
+			<ul id="list">
+				<li>0 for empty space</li>
+				<li>1 for  /</li>
+				<li>2 for  \</li>
+				<li>3 for  |</li>
+				<li>4 for  _</li>
+				<li>5 for  X</li>
+				<li>6 for  *</li>
+			</ul>
+			<p>For example the list for our heart picture would look like this:</p>
+                  <div>
+                  <pre>
+                        <code>
+heart = [
+      [0,0,4,4,0,0,4,4,0,0],
+      [0,1,0,0,2,1,0,0,2,0],
+      [3,0,0,0,0,0,0,0,0,3],
+      [3,0,0,0,0,0,0,0,0,3],
+      [0,2,0,0,0,0,0,0,1,0],
+      [0,0,2,0,0,0,0,1,0,0],
+      [0,0,0,2,0,0,1,0,0,0],
+      [0,0,0,0,2,1,0,0,0,0]
+    ]
+                        </code>
+                  </pre>
+            </div>
+			<p>As you can see, we have the name of our list “heart” followed by a space, an equal sign, another space, then a set of brackets with several sets of brackets inside of those brackets. The first set of brackets contains our rows of pixels and the each set of brackets within those backets contains the pixels for each row.  Now let's add the rest of our picture lists.  Note that you do not add a comma between each list but only between the list items within the list.</p>
+                  <div>
+                  <pre>
+			<code>
+tree = [
+      [0,0,0,0,0,0,1,2,0,0,0,0,0,0],
+      [0,0,0,0,0,1,0,0,2,0,0,0,0,0],
+      [0,0,0,0,1,0,0,0,0,2,0,0,0,0],
+      [0,0,0,1,4,4,0,0,4,4,2,0,0,0],
+      [0,0,0,0,0,1,0,0,2,0,0,0,0,0],
+      [0,0,0,0,1,0,0,0,0,2,0,0,0,0],
+      [0,0,0,1,0,0,0,0,0,0,2,0,0,0],
+      [0,0,1,4,4,0,0,0,0,4,4,2,0,0],
+      [0,0,0,0,1,0,0,0,0,2,0,0,0,0],
+      [0,0,0,1,0,0,0,0,0,0,2,0,0,0],
+      [0,0,1,0,0,0,0,0,0,0,0,2,0,0],
+      [0,1,4,4,0,0,0,0,0,0,4,4,2,0],
+      [0,0,0,1,0,0,0,0,0,0,2,0,0,0],
+      [0,0,1,0,0,0,0,0,0,0,0,2,0,0],
+      [0,1,0,0,0,0,0,0,0,0,0,0,2,0],
+      [1,4,4,4,4,4,4,4,4,4,4,4,4,2],
+      [0,0,0,0,0,3,0,0,3,0,0,0,0,0],
+      [0,0,0,0,0,3,4,4,3,0,0,0,0,0]
+    
+   ]
+			</code>
+            </pre></div>
+            <div>
+            <pre>
+			<code>
+smile = [
+      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,0,0,0,0,0,0],
+      [0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,3,0,0,0,0,0],
+      [0,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,3,0,0,0,0,0],
+      [3,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0,0,4,4,3,0,0,3,0,0,0,0,0],
+      [3,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0,3,0,0,3,0,0,3,0,0,0,0,0],
+      [0,2,0,2,1,0,0,4,4,4,0,0,4,4,4,0,3,4,4,3,0,0,3,4,4,4,0,0],
+      [0,1,2,0,2,0,1,0,0,0,2,1,0,0,0,2,3,0,0,3,0,0,3,0,0,0,2,0],
+      [3,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0,3,0,0,3,0,0,3,0,3,0,0,3],
+      [3,0,3,0,0,3,0,0,3,0,0,0,0,3,0,0,3,0,0,3,0,0,3,0,0,4,1,0],
+      [0,2,0,0,1,3,0,0,3,0,0,0,0,3,0,0,3,0,0,3,0,0,3,0,0,0,2,0],
+      [0,0,2,1,0,3,4,4,3,4,4,4,4,3,4,4,3,4,4,3,4,4,3,4,4,4,4,3]
+   ]
+			</code>
+            </pre></div>
+            <div>
+            <pre>
+			<code>
+face = [
+      [0,0,0,4,4,0,0,0,0,0,0,0,4,4,0,0,0],
+      [0,0,1,0,0,2,0,0,0,0,0,1,0,0,2,0,0],
+      [0,1,0,0,0,0,2,0,0,0,1,0,0,0,0,2,0],
+      [3,0,0,0,0,0,0,2,0,1,0,0,0,0,0,0,3],
+      [3,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,3],
+      [3,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,3],
+      [3,0,0,0,0,0,0,1,3,2,0,0,0,0,0,0,3],
+      [3,0,0,0,0,0,1,0,3,0,2,0,0,0,0,0,3],
+      [3,0,0,0,0,1,0,0,3,0,0,2,0,0,0,0,3],
+      [3,0,0,0,1,0,0,0,3,0,0,0,2,0,0,0,3],
+      [0,2,0,1,0,1,2,0,3,0,1,2,0,2,0,1,0],
+      [0,0,2,0,0,2,1,0,3,0,2,1,0,0,1,0,0],  
+      [0,0,0,2,0,0,0,0,3,0,0,0,0,1,0,0,0],
+      [0,0,0,0,2,0,0,0,3,0,0,0,1,0,0,0,0],
+      [0,0,0,0,0,2,4,1,0,2,4,1,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0],
+      [1,2,0,0,0,0,2,4,4,4,1,0,0,0,0,1,2],
+      [0,0,2,0,0,0,0,0,0,0,0,0,0,0,1,0,0],
+      [0,0,0,2,4,4,4,4,4,4,4,4,4,1,0,0,0],
+      [0,0,0,0,3,0,3,0,3,0,3,0,3,0,0,0,0],
+      [0,0,0,0,3,4,3,4,3,0,3,4,3,0,0,0,0],
+      [0,0,0,0,0,0,0,0,3,4,3,0,0,0,0,0,0]
+   ]
+			</code>
+            </pre></div>
+            <div>
+            <pre>
+			<code>
+alien = [
+      [0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,1,0,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,4,4,4,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,1,0,1,5,5,5,5,5,2,0,0,0,0,0,0,0,0,0,0,0,0,1,5,5,5,5,5,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,1,0,1,5,5,5,5,5,5,5,2,0,0,0,0,0,0,0,0,0,0,1,5,5,5,5,5,5,5,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,1,0,1,5,5,5,5,5,5,5,5,5,2,0,0,0,0,0,0,0,0,1,5,5,5,5,5,5,5,5,5,2,0,2,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0],
+      [3,0,3,5,5,5,5,5,5,5,5,5,5,5,2,0,0,0,0,0,0,1,5,5,5,5,5,5,5,5,5,5,5,3,0,3,0,0,0,0,0,3,0,3,0,0,0,0,0,0,0,0,0,0,0],
+      [3,0,3,5,5,5,5,5,5,5,5,5,5,5,5,2,0,0,0,0,1,5,5,5,5,5,5,5,5,5,5,5,5,3,0,3,0,0,0,0,0,3,0,3,0,0,0,0,0,0,0,0,0,0,0],
+      [3,0,3,5,5,5,5,5,5,5,5,5,5,5,5,5,3,0,0,3,5,5,5,5,5,5,5,5,5,5,5,5,5,3,0,3,0,0,0,0,0,3,0,3,0,0,0,0,0,0,0,0,0,0,0],
+      [3,0,3,5,5,5,5,5,5,5,5,5,5,5,5,5,3,0,0,3,5,5,5,5,5,5,5,5,5,5,5,5,5,3,0,3,0,0,0,0,0,3,0,3,0,0,0,0,0,0,0,0,1,2,0],
+      [3,0,0,2,5,5,5,5,5,5,5,5,5,5,5,5,3,0,0,3,5,5,5,5,5,5,5,5,5,5,5,5,1,0,0,3,0,0,0,0,0,3,0,3,0,0,0,0,0,0,0,1,0,0,3],
+      [3,0,0,0,2,5,5,5,5,5,5,5,5,5,5,5,3,0,0,3,5,5,5,5,5,5,5,5,5,5,5,1,0,0,0,3,0,0,0,0,0,3,0,3,0,0,0,0,0,0,1,0,0,1,0],
+      [3,0,0,0,0,2,5,5,5,5,5,5,5,5,5,5,3,0,0,3,5,5,5,5,5,5,5,5,5,5,1,0,0,0,0,3,0,0,0,0,0,3,0,3,0,0,0,0,0,1,0,0,1,0,0],
+      [3,0,0,0,0,0,2,5,5,5,5,5,5,5,5,1,0,0,0,0,2,5,5,5,5,5,5,5,5,1,0,0,0,0,0,3,0,0,0,0,0,3,0,3,0,0,0,0,1,0,0,1,0,0,0],
+      [3,0,0,0,0,0,0,2,5,5,5,5,5,5,1,0,0,0,0,0,0,2,5,5,5,5,5,5,1,0,0,0,0,0,0,3,0,0,0,0,0,3,0,3,0,0,0,1,0,0,1,0,0,0,0],
+      [3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,3,0,3,0,0,1,0,0,1,0,0,0,0,0],
+      [0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,3,0,3,0,1,0,0,1,0,0,0,0,0,0],
+      [0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,3,0,3,1,0,0,1,0,0,0,0,0,0,0],
+      [0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0],
+      [0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,3,0,0,0,0,4,1,2,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,3,0,0,0,1,1,0,0,3,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,3,0,0,1,1,0,0,0,3,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,2,0,0,0,0,0,0,2,4,4,4,4,4,4,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,3,0,1,1,0,0,1,0,3,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,3,1,1,0,0,1,0,0,3,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,4,4,1,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,1,3,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,3,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,3,0,2,0,0,0,0,0,0,0,0,0,0,1,0,3,0,0,0,0,0,0,0,0,0,0,0,3,0,0,1,3,0,0,3,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,3,0,0,2,0,0,0,0,0,0,0,0,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,3,4,1,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,3,0,0,0,2,0,0,0,0,0,0,1,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,2,0,0,0,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,2,4,4,1,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,3,0,0,0,0,0,0,0,0,0,0]
+   ]	
+			</code>
+            </pre></div>
+		</section>
+		<section class="main-section" id="Create_A_Picture_Converter_Function">
+			<header>Create A Picture Converter Function</header>
+			<p>A function is a block of code that must be defined and called.  You can pass parameters into a function or tie functions together. A function can also return data as a result.  A function is defined using the def keyword followed by the name of the function like this:</p>
+			<code>def pic_convert(picture):</code>
+			<p>Notice that the name of the function has an underscore in place of a space, this is because in Python funtion names cannot contain spaces otherwise it will cause an error during execution of the program.</p>
+			<p>Now we have to tell the interpreter what this function is supposed to do when it’s called.  We want our program to carry out the same function on each pixel in each row, so that's the first thing we have to tell our function to do.  Note I'm the previously discussed line of code in the following examples to show the tab structure which indicates a hiearchy in python.</p>
+                  <div>
+                  <pre>
+			<code>
+def pic_convert(picture):
+      for row in picture:
+            for pixel in row:
+                  </code>
+                  </pre></div>
+			<p>Now we can tell our function what to do for each pixel in our picture, to do this we will be using an elif statement.  Simply put it means that if the pixel is represented by this number, print this symbol in it's place, else if the pixel is represented by this other number print this symbol, else, or otherwise if it's not any of those numbers, print this symbol.  For our function the code would look like this:</p>
+                  <div>
+                  <pre>
+			   <code>
+def pic_convert(picture):
+      for row in picture:
+            for pixel in row:
+                  if (pixel == 1):
+                        print('/', end='')
+                  elif (pixel == 2):
+                        print('\\', end='')
+                  elif (pixel == 3):
+                        print('|', end='')
+                  elif (pixel == 4):
+                        print("_", end='')
+                  elif (pixel == 5):
+                        print('X', end='')
+                  elif (pixel == 6):
+                        print('*', end='')
+                  else:
+                        print(' ', end='')
+            print('')
+                        </code>
+                  </pre></div>
+			<p>Now let's break that down a little bit.  The tab structure indicates the heirarchy order of the function. It simply tells the program that for each row in the picture and each pixel in the row, if the value of that pixel is equal to 1 print  “/” and if not go to next part of the elif statement and the next until if finds a matching value or has reached the final else statement and has printed a space or character for each pixel in the row.  The final print('') statement is lined up with the line of code that says “for each pixel in row” which essentially loops the function back to start the next row and so on and so forth until all rows have been printed.  Notice in the elif statements there are 2 equal signs instead of just one.  This is because python uses equal signs when assigning names to lists, dictionaries, ect.  Therefore when the equal sign is being used to compare a literal value and not assign a name or value then you must use 2 equal signs in a row to signify this to the python interpreter.</p>
+			<p>Now, in the final else statement it says “print(' ', end='')” , there is a space between the apostrophes in the beginning of the statement that indicates a blank pixel or a space in the picture, and then after the comma there's the code “.., end='')” (with no space between the apostrophes), which tells the program that once it has printed the pixel to print the following pixel on the same line and not on a new line.  Without this line of code after each of our pixel options each pixel would be printed on it's own line and our picture wouldn't look like a picture.</p>
+			<p>Normally, we would now call the function using the name of the function followed by parenthesis.  The parenthesis can be empty or contain parameters to be passed into the function.   In this case we will be using another block of code to call our picture decoding function.  This block of code will be using user imput to determine which picture to print out and pass that imput as a perameter for our function.</p>
+			<p>First let's start by writing a code that will ask the user to enter their name then the program will then tell the user hello using the name the user entered.  We'll start off by assigning the user input to the variable name, then use the print command.  Like this:</p>
+                  <div>
+                  <pre>
+			   <code>
+name = input('What is your name? ')
+      print(f'Hello {name}!')
+                        </code>
+                  </pre></div>
+			<p>Now, let's break that down.  In the first line the word “input” tells python to print the string in the parenthesis in the terminal and accept the users response or input and assign it to the variable called name.  Then in the next line of code the “f” just before the apostrohe tells python to print the text within the apostrophes as a string replacing “{name}” with the users input.</p>
+		</section>
+		<section class="main-section" id="Code_A_Picture_Selector">
+			<header>Code A Picture Selector</header>
+			<p>Now that you have a basic understanding of variables and elif statements, let's code the last part of our python program, the picture selector.  In this block of code we will be asking the user to imput a number between 1 and 5, assign that number to the variable number and then use the number variable to determine which picture to print by assigning each number to a picture/list then call our picture decoder function passing the list as a parameter.  Like this:</p>
+                  <div>
+                  <pre>
+			      <code>
+number = input('Pick a number between 1 and 5: ')
+      if number == '1':
+            pic_convert(heart)
+      elif number == '2':
+            pic_convert(tree)
+      elif number == '3':
+            pic_convert(smile)
+      elif number == '4':
+            pic_convert(face)
+      else:
+            pic_convert(alien)
+                        </code>
+                  </pre></div>
+			<p>Now we're ready to save our python program as picture.py and finally try it out by clicking the green play arrow on the toolbar of pycharm.</p>
+			<p>For an added challenge you can try to add in your own pictures to the program or replace your picture selector with a random number generator to print out a random picture for the user without asking the user to pick a number.  I hope you found this tutorial educational but most of all I hope you enjoyed it!</p>
+		</section>
+	</main>
+</body>
+</html>
